@@ -18,6 +18,8 @@ pipeline{
                 echo 'Deploying...'
                 sshPublisher(publishers: [sshPublisherDesc(configName: 'ubuntu-home', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''tar -xvf python-app.tar -C ./app/
                 cd app/
+                python3 -m venv myenv
+                source myenv/bin/activate
                 pip install -r requirements.txt
                 python3 app.py''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
                 echo 'Deployment completed successfully.'
