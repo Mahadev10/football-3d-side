@@ -25,7 +25,7 @@ pipeline{
                 source myenv/bin/activate
                 pip install -r requirements.txt
                 python3 app.py''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
-                echo 'Deployment completed successfully.'
+                echo 'Deployment completed successfully'
             }
         }
     }
