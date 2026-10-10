@@ -16,7 +16,10 @@ pipeline{
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                sshPublisher(publishers: [sshPublisherDesc(configName: 'ubuntu-home', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''tar -xvf python-app.tar -C ./app/
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'ubuntu-home', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''
+                rm -r app/
+                mkdir app/
+                tar -xvf python-app.tar -C ./app/
                 cd app/
                 python3 -m venv myenv
                 source myenv/bin/activate
