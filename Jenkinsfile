@@ -3,7 +3,9 @@ pipeline{
     stages{
         stage('Build') {
             steps {
-                echo 'Building...'
+                sh 'ls'
+                sh 'tar -cvf python-app.tar  *'
+                sh 'tar -tvf ./python-app.tar'
             }
         }
         stage('Test') {
